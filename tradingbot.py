@@ -7,9 +7,14 @@ from alpaca_trade_api import REST # dynamically get news
 from timedelta import Timedelta # calculate diff between days, weeks, etc
 from finbert_utils import estimate_sentiment
 
-# NOTE: Must hide key, secret before publishing to github!
-API_KEY = config.API_KEY
-API_SECRET = config.API_SECRET
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+
+API_KEY = os.getenv("API_KEY")
+API_SECRET = os.getenv("API_SECRET")
+
 BASE_URL = "https://paper-api.alpaca.markets/v2"
 
 ALPACA_CREDS = {
